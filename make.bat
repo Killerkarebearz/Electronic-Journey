@@ -26,6 +26,11 @@ if errorlevel 9009 (
 if "%1" == "" goto help
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+
+REM Copy the .nojekyll file to prevent github attempting to run jekyll on the site
+echo Copying .nojekyll to build
+copy source\.nojekyll build\
+
 goto end
 
 :help
