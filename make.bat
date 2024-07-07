@@ -8,7 +8,7 @@ if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
 set SOURCEDIR=source
-set BUILDDIR=docs
+set BUILDDIR=build
 
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
@@ -24,9 +24,16 @@ if errorlevel 9009 (
 )
 
 if "%1" == "" goto help
+if "%1" == "html" goto html
 
+Rem allow other commands to pass directly
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+goto end
 
+:html
+%SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+REM Copy the build to a top level docs for github pages compatability
+xcopy build\html\ docs\ /q /s /y
 REM Copy the .nojekyll file to prevent github attempting to run jekyll on the site
 echo Copying .nojekyll to docs
 copy source\.nojekyll docs\
