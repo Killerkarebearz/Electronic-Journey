@@ -25,18 +25,38 @@ if errorlevel 9009 (
 
 if "%1" == "" goto help
 if "%1" == "html" goto html
+if "%1" == "clean" goto clean
 
 Rem allow other commands to pass directly
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 goto end
 
 :html
+REM Cleaning docs prior to build
+echo Removing everything under 'docs'
+rmdir /S /Q "docs"
+mkdir "docs
+
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 REM Copy the build to a top level docs for github pages compatability
 xcopy build\html\ docs\ /q /s /y
 REM Copy the .nojekyll file to prevent github attempting to run jekyll on the site
 echo Copying .nojekyll to docs
 copy source\.nojekyll docs\
+
+REM Copy the CNAME for custom domain
+echo Copying CNAME to docs
+copy source\CNAME docs\
+
+goto end
+
+:clean
+REM Cleaning docs prior to build
+echo Removing everything under 'docs'
+rmdir /S /Q "docs"
+mkdir "docs
+
+%SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 
 goto end
 
