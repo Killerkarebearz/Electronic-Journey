@@ -24,5 +24,22 @@ exclude_patterns = []
 
 html_theme = 'sphinx_book_theme'
 html_static_path = ['_static']
-html_title = "My site title"
+html_title = "Electronic Journeys"
 html_logo = "./_images/ElectronicJourneyLogo.jpeg"
+
+html_theme_options = {
+    "repository_url": "https://github.com/Killerkarebearz/Electronic-Journey",
+    "use_repository_button": True,    
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/Killerkarebearz/Electronic-Journey",
+            "icon": "fa-brands fa-github",
+        },
+        {
+            "name": "Youtube",
+            "url": "https://www.youtube.com/@Electronic-Journeys",
+            "icon": "fa-brands fa-youtube",
+        }
+    ]
+}
