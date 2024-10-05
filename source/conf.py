@@ -28,8 +28,12 @@ html_title = "Electronic Journeys"
 html_logo = "./_images/ElectronicJourneyLogo.jpeg"
 
 html_theme_options = {
-    "repository_url": "https://github.com/Killerkarebearz/Electronic-Journey",
-    "use_repository_button": True,    
+    "repository_url": "https://github.com/Killerkarebearz/Electronic-Journey/",
+    "path_to_docs": "source/",
+    "use_repository_button": True,  
+    "use_edit_page_button": True,
+    "use_issues_button": True,
+    "use_sidenotes": True,    
     "icon_links": [
         {
             "name": "GitHub",

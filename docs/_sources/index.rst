@@ -6,11 +6,12 @@ The goal of this site is to share knowledge and document projects for all to ben
 The site will be structured into larger chapters of fundamentals as well as project documentation.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
    
    Chapter 0 - The Preamble			<./chapter0/chapter0>
    Chapter 1 - The Fundamentals		<./chapter1/chapter1>
+   Resources						<./resources/resources>
    Template							<./template/template>
 
 
